@@ -1,8 +1,8 @@
 # Microsoft Teams Activity Monitor
 
-A comprehensive web-based tool for monitoring Microsoft Teams user activity and detecting potentially retired or inactive users in your organization. Built with Next.js, React, and Microsoft Graph API integration.
+A comprehensive web-based tool for monitoring Microsoft Teams user activity and detecting retired & inactive users in your organization.
 
-## 🌟 Features
+##  Features
 
 ### 1. **Teams Activity Lookup Tool**
 - Check individual user's Teams presence and activity status
@@ -12,7 +12,7 @@ A comprehensive web-based tool for monitoring Microsoft Teams user activity and 
 - Export results to clipboard
 
 ### 2. **Retired User Detector**
-- Advanced scoring algorithm to identify potentially retired employees
+- Advanced scoring algorithm to identify retired employees.
 - Single user or bulk analysis (up to 50 users)
 - Multi-factor retirement risk assessment including:
   - Account status (enabled/disabled)
@@ -20,25 +20,18 @@ A comprehensive web-based tool for monitoring Microsoft Teams user activity and 
   - Teams presence and activity
   - License assignments
   - Group memberships
-- Risk levels: High, Medium, Low, Active
-- Export results to CSV
-- Actionable recommendations for each risk level
 
 ### 3. **PowerShell Guide**
 - Comprehensive step-by-step instructions for Teams management via PowerShell
 - Code snippets with copy functionality
 - Permission requirements and setup
-- Troubleshooting tips
-- Best practices for bulk operations
 
-## 📋 Prerequisites
-
-- Node.js 14.0 or higher
-- npm or yarn package manager
-- Microsoft 365 organization
+##  Prerequisites
+- Node.js 14.0+
+- Microsoft 365 Organization User with Global Reader permissions
 - Microsoft Graph API access with appropriate permissions
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Clone the Repository
 ```bash
@@ -59,7 +52,7 @@ Copy the `.env.example` file to `.env`:
 cp .env.example .env
 ```
 
-Edit the `.env` file and add your Microsoft Graph API credentials:
+Edit the `.env` file and add your Microsoft User credentials:
 ```env
 MICROSOFT_CLIENT_ID=your_client_id_here
 MICROSOFT_CLIENT_SECRET=your_client_secret_here
@@ -75,7 +68,7 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 🔐 Setting Up Microsoft Graph API Access
+##  Setting Up Microsoft Graph API Access
 
 ### Step 1: Register an App in Azure Portal
 
@@ -115,6 +108,18 @@ From the app overview page, copy:
 - **Directory (tenant) ID** → `MICROSOFT_TENANT_ID`
 - Your copied secret → `MICROSOFT_CLIENT_SECRET`
 
+### Alternative: Microsoft 365 admin center
+
+Go to admin.microsoft.com and sign in.
+
+Left menu: Show all → Roles.
+
+Search Global Reader, open it → Assigned admins. Look for your name.
+
+Or: Users → Active users → open your user → Account tab → Roles → see Admin center access list for Global Reader.
+
+Tip: If you can’t open the admin center, you likely don’t have any admin role (including Global Reader).
+
 ## 📱 Usage Guide
 
 ### Teams Activity Lookup
@@ -139,7 +144,7 @@ From the app overview page, copy:
 3. Copy code snippets as needed
 4. Use for advanced Teams management tasks
 
-## 🎯 Retirement Detection Algorithm
+##  Retirement Detection Algorithm
 
 The tool uses a weighted scoring system to assess retirement risk:
 
@@ -151,13 +156,8 @@ The tool uses a weighted scoring system to assess retirement risk:
 | License Status | 15% | Active licenses and usage |
 | Group Membership | 10% | Active directory and security groups |
 
-### Risk Levels
-- **80-100%**: High Risk - Immediate action recommended
-- **60-79%**: Medium Risk - Investigation recommended
-- **30-59%**: Low Risk - Monitor for changes
-- **0-29%**: Active User - No action needed
 
-## 🛠️ Development
+##  Development
 
 ### Project Structure
 ```
@@ -173,19 +173,12 @@ The tool uses a weighted scoring system to assess retirement risk:
 └── package.json                      # Dependencies and scripts
 ```
 
-### Available Scripts
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-
 ### Technology Stack
 - **Frontend**: Next.js 14, React 18, TailwindCSS
 - **API Integration**: Microsoft Graph API
-- **Styling**: TailwindCSS, FontAwesome icons
 - **Deployment**: Vercel-ready
 
-## 📊 API Endpoints
+##  API Endpoints
 
 ### POST `/api/teams-activity`
 Check Teams activity for a specific user.
@@ -211,7 +204,7 @@ Check Teams activity for a specific user.
 }
 ```
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -229,35 +222,14 @@ Check Teams activity for a specific user.
 - The tool includes built-in rate limiting for bulk operations
 - If you encounter throttling, reduce batch sizes or add delays
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Built with [Next.js](https://nextjs.org/)
-- Styled with [TailwindCSS](https://tailwindcss.com/)
-- Icons from [FontAwesome](https://fontawesome.com/)
-- Microsoft Graph API integration
-
-## 📧 Support
+##  Support
 
 For issues, questions, or suggestions, please:
 - Open an issue on GitHub
 - Contact your organization's IT administrator
-- Review the [Microsoft Graph documentation](https://docs.microsoft.com/en-us/graph/)
+- Review the [Microsoft Graph documentation] (https://docs.microsoft.com/en-us/graph/)
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
 This tool is designed for legitimate administrative purposes only. Ensure you have proper authorization before monitoring user activity in your organization. Always comply with your organization's privacy policies and local regulations regarding employee monitoring.
 
