@@ -1,6 +1,6 @@
 {
-  "name": "create-project",
-  "version": "0.1.0",
+  "name": "microsoft-teams-monitor",
+  "version": 1.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
