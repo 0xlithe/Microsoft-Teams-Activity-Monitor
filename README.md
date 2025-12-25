@@ -1,6 +1,6 @@
 # Microsoft Teams Activity Monitor
 
-A comprehensive web-based tool for monitoring Microsoft Teams user activity and detecting retired & inactive users in your organization.
+A comprehensive web-based tool for monitoring Microsoft Teams user activity and detecting retired & inactive users in your businsess / organization.
 
 ##  Features
 
@@ -21,17 +21,13 @@ A comprehensive web-based tool for monitoring Microsoft Teams user activity and 
   - License assignments
   - Group memberships
 
-### 3. **PowerShell Guide**
-- Comprehensive step-by-step instructions for Teams management via PowerShell
-- Code snippets with copy functionality
-- Permission requirements and setup
-
 ##  Prerequisites
 - Node.js 14.0+
 - Microsoft 365 Organization User with Global Reader permissions
+OR
 - Microsoft Graph API access with appropriate permissions
 
-##  Quick Start
+##  Start Guide
 
 ### 1. Clone the Repository
 ```bash
@@ -42,9 +38,6 @@ cd TeamsActivityMonitor
 ### 2. Install Dependencies
 ```bash
 npm install
-# or
-yarn install
-```
 
 ### 3. Configure Environment Variables
 Copy the `.env.example` file to `.env`:
@@ -69,6 +62,22 @@ yarn dev
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ##  Setting Up Microsoft Graph API Access
+
+
+### EASIEST METHOD: Microsoft 365 Admin Center (Global Reader Permissions)
+
+Go to admin.microsoft.com and sign in.
+
+Left menu: Show all → Roles.
+
+Search Global Reader, open it → Assigned admins. Look for your name.
+
+Or: Users → Active users → open your user → Account tab → Roles → see Admin center access list for Global Reader.
+
+Tip: If you can’t open the admin center, you likely don’t have any admin role (including Global Reader).
+
+
+### ALTERNATIVE METHOD: REGISTERING AN ACCOUNT WITH AZURE
 
 ### Step 1: Register an App in Azure Portal
 
@@ -108,35 +117,6 @@ From the app overview page, copy:
 - **Directory (tenant) ID** → `MICROSOFT_TENANT_ID`
 - Your copied secret → `MICROSOFT_CLIENT_SECRET`
 
-### Alternative: Microsoft 365 admin center
-
-Go to admin.microsoft.com and sign in.
-
-Left menu: Show all → Roles.
-
-Search Global Reader, open it → Assigned admins. Look for your name.
-
-Or: Users → Active users → open your user → Account tab → Roles → see Admin center access list for Global Reader.
-
-Tip: If you can’t open the admin center, you likely don’t have any admin role (including Global Reader).
-
-## 📱 Usage Guide
-
-### Teams Activity Lookup
-1. Navigate to `/teams-activity-lookup`
-2. Enter a username or email address
-3. Click "Lookup" to check their current Teams status
-4. View presence, activity, and last activity time
-5. Copy results or check history of recent lookups
-
-### Retired User Detector
-1. Navigate to `/retired-user-detector`
-2. Choose between:
-   - **Single User**: Enter one email address
-   - **Bulk Analysis**: Paste up to 50 email addresses (one per line)
-3. Click "Analyze" to run the detection algorithm
-4. Review retirement risk scores and recommendations
-5. Export results to CSV for reporting
 
 ### PowerShell Guide
 1. Navigate to `/powershell-guide`
@@ -157,82 +137,7 @@ The tool uses a weighted scoring system to assess retirement risk:
 | Group Membership | 10% | Active directory and security groups |
 
 
-##  Development
-
-### Project Structure
-```
-├── src/
-│   ├── app/
-│   │   ├── teams-activity-lookup/    # Activity lookup tool
-│   │   ├── retired-user-detector/    # Retirement detection tool
-│   │   └── powershell-guide/         # PowerShell documentation
-│   ├── api/
-│   │   └── teams-activity/           # API routes for Teams data
-│   └── components/                   # Reusable React components
-├── public/                           # Static assets
-└── package.json                      # Dependencies and scripts
-```
-
 ### Technology Stack
-- **Frontend**: Next.js 14, React 18, TailwindCSS
-- **API Integration**: Microsoft Graph API
-- **Deployment**: Vercel-ready
+- Frontend: NextJS 14, React 18, TailwindCSS
+- API Integration: Microsoft Graph API
 
-##  API Endpoints
-
-### POST `/api/teams-activity`
-Check Teams activity for a specific user.
-
-**Request Body:**
-```json
-{
-  "username": "user@domain.com"
-}
-```
-
-**Response:**
-```json
-{
-  "username": "user@domain.com",
-  "displayName": "John Doe",
-  "lastActivity": "2024-01-27T10:30:00Z",
-  "presence": {
-    "availability": "Available",
-    "activity": "Available"
-  },
-  "timestamp": "2024-01-27T10:35:00Z"
-}
-```
-
-##  Troubleshooting
-
-### Common Issues
-
-#### "Failed to authenticate with Microsoft Graph API"
-- Verify your environment variables are set correctly
-- Check that your client secret hasn't expired
-- Ensure admin consent has been granted for API permissions
-
-#### "User not found"
-- Verify the email address is correct
-- Check that the user exists in your Microsoft 365 tenant
-- Ensure you have `User.Read.All` permission
-
-#### Rate Limiting
-- The tool includes built-in rate limiting for bulk operations
-- If you encounter throttling, reduce batch sizes or add delays
-
-##  Support
-
-For issues, questions, or suggestions, please:
-- Open an issue on GitHub
-- Contact your organization's IT administrator
-- Review the [Microsoft Graph documentation] (https://docs.microsoft.com/en-us/graph/)
-
-##  Disclaimer
-
-This tool is designed for legitimate administrative purposes only. Ensure you have proper authorization before monitoring user activity in your organization. Always comply with your organization's privacy policies and local regulations regarding employee monitoring.
-
----
-
-**Note**: Currently, the tool displays simulated data for demonstration purposes. Connect your Microsoft Graph API credentials to enable real-time Teams activity monitoring.
