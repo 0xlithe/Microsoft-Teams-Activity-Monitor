@@ -1,6 +1,6 @@
 # Microsoft Teams Activity Monitor
 
-A comprehensive web-based tool for monitoring Microsoft Teams user activity and detecting retired & inactive users in your businsess / organization.
+A comprehensive web-based tool for monitoring Microsoft Teams user activity and detecting retired & inactive users in your business / organization.
 
 ##  Features
 
